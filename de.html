@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deoma — Delin & Massarsch AB</title>
+  <meta name="description" content="Deoma bringt Ideen zu fertigen digitalen Diensten — mit eigenem Kapital, eigenen Händen und über 25 Jahren Erfahrung. Innovation, Investition und Beratung.">
+  <meta property="og:title" content="Deoma — Delin & Massarsch AB">
+  <meta property="og:description" content="Wir bringen Ideen zu fertigen digitalen Diensten — mit eigenem Kapital, eigenen Händen und echtem Engagement.">
+  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="sv" href="https://deomaweb.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://deomaweb.vercel.app/en.html">
+  <link rel="alternate" hreflang="de" href="https://deomaweb.vercel.app/de.html">
+  <link rel="alternate" hreflang="x-default" href="https://deomaweb.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <style>
@@ -31,7 +39,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       color: var(--text);
-      background: var(--bg);
+      background: transparent;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -47,7 +55,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--bg);
+      background: transparent;
     }
 
     .nav {
@@ -99,7 +107,7 @@
     }
 
     .nav-sigill span:nth-child(2) {
-      background: var(--bg);
+      background: transparent;
     }
 
     .nav-logo-name {
@@ -176,11 +184,15 @@
       position: absolute;
       top: 100%;
       right: 0;
-      margin-top: 0.25rem;
-      background: var(--bg);
-      border: none;
+      padding-top: 0.25rem;
+      background: transparent;
       min-width: 100%;
       z-index: 200;
+    }
+
+    .lang-dropdown-inner {
+      background: var(--bg);
+      border: 1px solid var(--border);
     }
 
     .lang-switch:hover .lang-dropdown,
@@ -211,7 +223,7 @@
       display: flex;
       align-items: flex-start;
       padding-top: 20vh;
-      background: var(--bg);
+      background: transparent;
     }
 
     .hero-inner {
@@ -391,7 +403,7 @@
 
     /* ── Portfolio ── */
     .portfolio {
-      background: var(--bg);
+      background: transparent;
       padding: 140px 0;
     }
 
@@ -709,14 +721,16 @@
       </a>
       <ul class="nav-links">
         <li><a href="#services">Was wir tun</a></li>
-        <li><a href="#portfolio">Unternehmen</a></li>
+        <li><a href="#portfolio">Projekte</a></li>
         <li><a href="#about">Über uns & Kontakt</a></li>
       </ul>
       <div class="lang-switch">
         <button class="lang-switch-btn">DE</button>
         <div class="lang-dropdown">
-          <a href="index.html">SV</a>
-          <a href="en.html">EN</a>
+          <div class="lang-dropdown-inner">
+            <a href="index.html">SV</a>
+            <a href="en.html">EN</a>
+          </div>
         </div>
       </div>
     </nav>
@@ -732,7 +746,7 @@
         <div class="hero-line"></div>
         <p class="hero-desc">Wir bauen digitale Dienste von der ersten Skizze bis zum fertigen Produkt — mit eigenem Kapital, eigenen Händen und echtem Engagement.</p>
         <div class="hero-actions">
-          <a href="#portfolio" class="btn-primary">Unsere Unternehmen</a>
+          <a href="#portfolio" class="btn-primary">Unsere Projekte</a>
           <a href="#about" class="text-link">Über uns →</a>
         </div>
       </div>

@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deoma — Delin & Massarsch AB</title>
+  <meta name="description" content="Deoma tar idéer till färdiga digitala tjänster — med eget kapital, egna händer och över 25 års erfarenhet. Innovation, investering och rådgivning.">
+  <meta property="og:title" content="Deoma — Delin & Massarsch AB">
+  <meta property="og:description" content="Vi tar idéer till färdiga digitala tjänster — med eget kapital, egna händer och genuint engagemang.">
+  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="sv" href="https://deomaweb.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://deomaweb.vercel.app/en.html">
+  <link rel="alternate" hreflang="de" href="https://deomaweb.vercel.app/de.html">
+  <link rel="alternate" hreflang="x-default" href="https://deomaweb.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <style>
@@ -176,11 +184,15 @@
       position: absolute;
       top: 100%;
       right: 0;
-      margin-top: 0.25rem;
-      background: var(--bg);
-      border: 1px solid var(--border);
+      padding-top: 0.25rem;
+      background: transparent;
       min-width: 100%;
       z-index: 200;
+    }
+
+    .lang-dropdown-inner {
+      background: var(--bg);
+      border: 1px solid var(--border);
     }
 
     .lang-switch:hover .lang-dropdown,
@@ -709,14 +721,16 @@
       </a>
       <ul class="nav-links">
         <li><a href="#services">Vad vi gör</a></li>
-        <li><a href="#portfolio">Bolag</a></li>
+        <li><a href="#portfolio">Projekt</a></li>
         <li><a href="#about">Om oss & Kontakt</a></li>
       </ul>
       <div class="lang-switch">
         <button class="lang-switch-btn">SV</button>
         <div class="lang-dropdown">
-          <a href="en.html">EN</a>
-          <a href="de.html">DE</a>
+          <div class="lang-dropdown-inner">
+            <a href="en.html">EN</a>
+            <a href="de.html">DE</a>
+          </div>
         </div>
       </div>
     </nav>
@@ -732,7 +746,7 @@
         <div class="hero-line"></div>
         <p class="hero-desc">Vi bygger digitala tjänster från första skissen till färdig produkt — med eget kapital, egna händer och ett genuint engagemang.</p>
         <div class="hero-actions">
-          <a href="#portfolio" class="btn-primary">Se våra bolag</a>
+          <a href="#portfolio" class="btn-primary">Se våra projekt</a>
           <a href="#about" class="text-link">Läs om oss →</a>
         </div>
       </div>
