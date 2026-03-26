@@ -371,11 +371,17 @@
     }
 
     .portfolio-status.active {
-      color: var(--red);
+      color: #1a8a3f;
     }
 
     .portfolio-status.active::before {
       content: '● ';
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     .portfolio-name {
@@ -688,58 +694,53 @@
           <rect x="-10" y="-10" width="660" height="540" fill="url(#mm-large)" opacity="0.5"/>
 
           <!--
-            All pieces have tabs/slots on EVERY side.
-            Tab = bump out 16px. Pieces interlock properly.
-            Shared edges: tab on one = slot on neighbor.
+            Puzzle pieces with varied, organic tab shapes.
+            Each tab differs in position, size and curve.
+            Shared edges interlock exactly.
 
             Grid layout:
             ┌──────────┬────────┐
             │  WEB     │   AI   │  row y: 20-180
-            │  tab R/B │        │
             ├──────────┼────────┤
             │INNOVATION│ MOBIL  │  row y: 180-360
-            │  (red)   │        │
             └──────────┴────────┘
             + AFFÄR (loose below-left)
             + FINANS (loose right)
-
-            Shared x boundary: 220
-            Tab size: center ±16, depth 16
           -->
 
-          <!-- WEB: outer tabs on top+left, shared tab→ to AI, shared tab↓ to INNOVATION -->
+          <!-- WEB -->
           <g class="p1">
-            <path d="M20,20 L104,20 C104,12 112,4 120,4 C128,4 136,12 136,20 L220,20 L220,84 C228,84 236,92 236,100 C236,108 228,116 220,116 L220,180 L136,180 C136,188 128,196 120,196 C112,196 104,188 104,180 L20,180 L20,116 C12,116 4,108 4,100 C4,92 12,84 20,84 Z" fill="none" stroke="#bbb" stroke-width="1"/>
+            <path d="M20,20 L120,20 C124,23 132,23 134,17 C133,12 128,0 140,0 C152,0 147,12 146,17 C148,23 156,23 160,20 L220,20 L220,72 C217,76 217,84 223,86 C228,85 240,79 240,92 C240,105 228,99 223,98 C217,100 217,108 220,112 L220,180 L126,180 C122,176 115,176 113,183 C114,188 119,202 108,202 C97,202 102,188 103,183 C101,176 94,176 90,180 L20,180 L20,121 C23,117 23,112 17,110 C12,111 2,115 2,105 C2,95 12,99 17,100 C23,98 23,93 20,89 Z" fill="none" stroke="#bbb" stroke-width="1"/>
             <text x="120" y="107" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="15" font-weight="400" letter-spacing="0.2em">WEB</text>
           </g>
 
-          <!-- AI: outer tabs on top+right, shared slot← from WEB, shared tab↓ to MOBIL -->
+          <!-- AI -->
           <g class="p2">
-            <path d="M220,20 L304,20 C304,12 312,4 320,4 C328,4 336,12 336,20 L420,20 L420,84 C428,84 436,92 436,100 C436,108 428,116 420,116 L420,180 L336,180 C336,188 328,196 320,196 C312,196 304,188 304,180 L220,180 L220,116 C228,116 236,108 236,100 C236,92 228,84 220,84 Z" fill="none" stroke="#bbb" stroke-width="1"/>
+            <path d="M220,20 L290,20 C294,22 298,22 300,17 C299,12 295,4 305,4 C315,4 311,12 310,17 C312,22 316,22 320,20 L420,20 L420,88 C417,92 417,101 423,103 C428,102 442,96 442,110 C442,124 428,118 423,117 C417,119 417,128 420,132 L420,180 L354,180 C350,178 347,178 345,183 C346,188 348,198 338,198 C328,198 330,188 331,183 C329,178 326,178 322,180 L220,180 L220,112 C217,108 217,100 223,98 C228,99 240,105 240,92 C240,79 228,85 223,86 C217,84 217,76 220,72 Z" fill="none" stroke="#bbb" stroke-width="1"/>
             <text x="320" y="107" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="15" font-weight="400" letter-spacing="0.2em">AI</text>
           </g>
 
-          <!-- INNOVATION: shared slot↑ from WEB, shared tab→ to MOBIL, outer tabs on bottom+left -->
+          <!-- INNOVATION -->
           <g class="p3">
-            <path d="M20,180 L104,180 C104,188 112,196 120,196 C128,196 136,188 136,180 L220,180 L220,254 C228,254 236,262 236,270 C236,278 228,286 220,286 L220,360 L136,360 C136,368 128,376 120,376 C112,376 104,368 104,360 L20,360 L20,286 C12,286 4,278 4,270 C4,262 12,254 20,254 Z" fill="none" stroke="#CC0000" stroke-width="1.25"/>
+            <path d="M20,180 L90,180 C94,176 101,176 103,183 C102,188 97,202 108,202 C119,202 114,188 113,183 C115,176 122,176 126,180 L220,180 L220,256 C217,260 217,267 223,269 C228,268 239,263 239,275 C239,287 228,282 223,281 C217,283 217,290 220,294 L220,360 L150,360 C146,357 138,357 136,363 C137,368 143,380 130,380 C117,380 123,368 124,363 C122,357 114,357 110,360 L20,360 L20,280 C24,276 24,270 17,268 C12,269 1,273 1,262 C1,251 12,255 17,256 C24,254 24,248 20,244 Z" fill="none" stroke="#CC0000" stroke-width="1.25"/>
             <text x="120" y="277" text-anchor="middle" fill="#CC0000" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">INNOVATION</text>
           </g>
 
-          <!-- MOBIL: shared slot↑ from AI, shared slot← from INNOVATION, outer tabs on right+bottom -->
+          <!-- MOBIL -->
           <g class="p4">
-            <path d="M220,180 L304,180 C304,188 312,196 320,196 C328,196 336,188 336,180 L420,180 L420,254 C428,254 436,262 436,270 C436,278 428,286 420,286 L420,360 L336,360 C336,368 328,376 320,376 C312,376 304,368 304,360 L220,360 L220,286 C228,286 236,278 236,270 C236,262 228,254 220,254 Z" fill="none" stroke="#888" stroke-width="1"/>
+            <path d="M220,180 L322,180 C326,178 329,178 331,183 C330,188 328,198 338,198 C348,198 346,188 345,183 C347,178 350,178 354,180 L420,180 L420,247 C417,251 417,257 423,259 C428,258 440,253 440,265 C440,277 428,272 423,271 C417,273 417,279 420,283 L420,360 L328,360 C324,357 317,357 315,363 C316,368 321,377 310,377 C299,377 304,368 305,363 C303,357 296,357 292,360 L220,360 L220,294 C217,290 217,283 223,281 C228,282 239,287 239,275 C239,263 228,268 223,269 C217,267 217,260 220,256 Z" fill="none" stroke="#888" stroke-width="1"/>
             <text x="320" y="277" text-anchor="middle" fill="#555" font-family="DM Sans" font-size="14" font-weight="400" letter-spacing="0.2em">MOBIL</text>
           </g>
 
-          <!-- AFFÄR: slot↑ would match INNOVATION bottom tab, rest tabs. Loose. -->
+          <!-- AFFÄR (loose) -->
           <g class="p5">
-            <path d="M20,380 L104,380 C104,388 112,396 120,396 C128,396 136,388 136,380 L220,380 L220,424 C228,424 236,432 236,440 C236,448 228,456 220,456 L220,500 L136,500 C136,508 128,516 120,516 C112,516 104,508 104,500 L20,500 L20,456 C12,456 4,448 4,440 C4,432 12,424 20,424 Z" fill="none" stroke="#CC0000" stroke-width="1" stroke-dasharray="5,4"/>
+            <path d="M20,380 L97,380 C101,383 108,383 110,377 C109,372 104,362 115,362 C126,362 121,372 120,377 C122,383 129,383 133,380 L220,380 L220,423 C218,427 218,431 223,433 C228,432 236,428 236,438 C236,448 228,444 223,443 C218,445 218,449 220,453 L220,500 L124,500 C120,497 113,497 111,503 C112,508 117,520 105,520 C93,520 98,508 99,503 C97,497 90,497 86,500 L20,500 L20,462 C23,458 23,453 17,451 C12,452 2,456 2,445 C2,434 12,438 17,439 C23,437 23,432 20,428 Z" fill="none" stroke="#CC0000" stroke-width="1" stroke-dasharray="5,4"/>
             <text x="120" y="447" text-anchor="middle" fill="#CC0000" font-family="DM Sans" font-size="13" font-weight="500" letter-spacing="0.18em" opacity="0.5">AFFÄR</text>
           </g>
 
-          <!-- FINANSIERING: slot← would match MOBIL right tab, rest tabs. Loose. -->
+          <!-- FINANSIERING (loose) -->
           <g class="p6">
-            <path d="M440,200 L504,200 C504,192 512,184 520,184 C528,184 536,192 536,200 L600,200 L600,254 C608,254 616,262 616,270 C616,278 608,286 600,286 L600,360 L536,360 C536,368 528,376 520,376 C512,376 504,368 504,360 L440,360 L440,286 C448,286 456,278 456,270 C456,262 448,254 440,254 Z" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="5,4"/>
+            <path d="M440,200 L511,200 C515,203 521,203 523,197 C522,192 517,182 528,182 C539,182 534,192 533,197 C535,203 541,203 545,200 L600,200 L600,255 C597,259 597,267 603,269 C608,268 620,262 620,275 C620,288 608,282 603,281 C597,283 597,291 600,295 L600,360 L530,360 C526,358 522,358 520,363 C521,368 525,376 515,376 C505,376 509,368 510,363 C508,358 504,358 500,360 L440,360 L440,290 C444,286 444,279 437,277 C432,278 419,283 419,270 C419,257 432,262 437,263 C444,261 444,254 440,250 Z" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="5,4"/>
             <text x="520" y="280" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="9" font-weight="400" letter-spacing="0.1em" opacity="0.5">FINANSIERING</text>
           </g>
 
@@ -780,24 +781,6 @@
       <h2 class="section-title">Bolag vi byggt.</h2>
       <div class="portfolio-grid">
         <div class="portfolio-card">
-          <img src="logo-avima.png" alt="Avima" class="portfolio-logo">
-          <div class="portfolio-card-top">
-            <p class="portfolio-status">Förvärvad</p>
-            <h3 class="portfolio-name">Avima</h3>
-            <p class="portfolio-desc">Digital projektplattform för bygg- och infrastrukturbranschen. Dokumenthantering, samarbetsverktyg och anbudshantering för projekt i Skandinavien. Startade som webforum.com.</p>
-          </div>
-          <a href="https://www.avima.se" target="_blank" rel="noopener" class="portfolio-link">Exit → iBinder Group</a>
-        </div>
-        <div class="portfolio-card">
-          <img src="logo-assently.svg" alt="Assently" class="portfolio-logo">
-          <div class="portfolio-card-top">
-            <p class="portfolio-status">Förvärvad</p>
-            <h3 class="portfolio-name">Assently</h3>
-            <p class="portfolio-desc">E-signering och digital identifiering för nordiska företag. Pionjär på den svenska marknaden. Förvärvades av Verified 2023.</p>
-          </div>
-          <a href="https://www.assently.com" target="_blank" rel="noopener" class="portfolio-link">Exit → Verified</a>
-        </div>
-        <div class="portfolio-card">
           <img src="logo-tagd.png" alt="Tagd.ai" class="portfolio-logo">
           <div class="portfolio-card-top">
             <p class="portfolio-status active">Aktiv</p>
@@ -814,6 +797,24 @@
             <p class="portfolio-desc">AI-driven tolkningstjänst med stöd för 50+ språk. Komplement till traditionell tolkning för skolor, vård och myndigheter. Vi är medgrundare.</p>
           </div>
           <a href="https://tolkster.ai" target="_blank" rel="noopener" class="portfolio-link">tolkster.ai →</a>
+        </div>
+        <div class="portfolio-card">
+          <img src="logo-avima.png" alt="Avima" class="portfolio-logo">
+          <div class="portfolio-card-top">
+            <p class="portfolio-status">Förvärvad</p>
+            <h3 class="portfolio-name">Avima</h3>
+            <p class="portfolio-desc">Digital projektplattform för bygg- och infrastrukturbranschen. Dokumenthantering, samarbetsverktyg och anbudshantering för projekt i Skandinavien. Startade som webforum.com.</p>
+          </div>
+          <a href="https://www.avima.se" target="_blank" rel="noopener" class="portfolio-link">Exit → iBinder Group</a>
+        </div>
+        <div class="portfolio-card">
+          <img src="logo-assently.svg" alt="Assently" class="portfolio-logo">
+          <div class="portfolio-card-top">
+            <p class="portfolio-status">Förvärvad</p>
+            <h3 class="portfolio-name">Assently</h3>
+            <p class="portfolio-desc">E-signering och digital identifiering för nordiska företag. Pionjär på den svenska marknaden. Förvärvades av Verified 2023.</p>
+          </div>
+          <a href="https://www.assently.com" target="_blank" rel="noopener" class="portfolio-link">Exit → Verified</a>
         </div>
       </div>
     </div>
@@ -855,7 +856,7 @@
             <img src="andreas.jpeg" alt="Andreas Massarsch" class="founder-img">
             <div>
               <div class="founder-name">Andreas Massarsch</div>
-              <div class="founder-role">Kontakt</div>
+              <div class="founder-role">Kontakt — <a href="mailto:andreas@deoma.se">andreas@deoma.se</a></div>
             </div>
           </div>
         </div>
