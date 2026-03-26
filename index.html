@@ -326,15 +326,28 @@
 
     .portfolio-card {
       background: var(--bg-alt);
-      padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 260px;
+      overflow: hidden;
+    }
+
+    .portfolio-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
     }
 
     .portfolio-card-top {
       margin-bottom: 1.5rem;
+      padding: 0 40px;
+    }
+
+    .portfolio-card-top:first-child {
+      padding-top: 0;
     }
 
     .portfolio-status {
@@ -375,6 +388,7 @@
       text-decoration: none;
       transition: color 0.2s;
       margin-top: auto;
+      padding: 0 40px 40px;
     }
 
     .portfolio-link:hover {
@@ -601,8 +615,8 @@
           <span></span>
         </div>
         <div class="nav-logo-text">
-          <span class="nav-logo-name">DEOMA</span>
-          <span class="nav-logo-sub">Delin & Massarsch AB</span>
+          <span class="nav-logo-name">deoma</span>
+          <span class="nav-logo-sub">delin & massarsch ab</span>
         </div>
       </a>
       <ul class="nav-links">
@@ -663,34 +677,38 @@
       <h2 class="section-title">Bolag vi byggt.</h2>
       <div class="portfolio-grid">
         <div class="portfolio-card">
+          <img src="screenshot-avima.png" alt="Avima" class="portfolio-thumb">
           <div class="portfolio-card-top">
             <p class="portfolio-status">Förvärvad</p>
             <h3 class="portfolio-name">Avima</h3>
-            <p class="portfolio-desc">Startade som webforum.com. Ett av Sveriges tidiga communities.</p>
+            <p class="portfolio-desc">Digital projektplattform för bygg- och infrastrukturbranschen. Dokumenthantering, samarbetsverktyg och anbudshantering för projekt i Skandinavien. Startade som webforum.com.</p>
           </div>
-          <a href="#" class="portfolio-link">Exit → IB Finder</a>
+          <a href="https://www.avima.se" target="_blank" rel="noopener" class="portfolio-link">avima.se →</a>
         </div>
         <div class="portfolio-card">
+          <img src="screenshot-assently.png" alt="Assently" class="portfolio-thumb">
           <div class="portfolio-card-top">
             <p class="portfolio-status">Förvärvad</p>
             <h3 class="portfolio-name">Assently</h3>
-            <p class="portfolio-desc">Pionjär inom e-signering på den svenska marknaden.</p>
+            <p class="portfolio-desc">E-signering och digital identifiering för nordiska företag. Pionjär på den svenska marknaden. Förvärvades av Verified 2023.</p>
           </div>
-          <a href="#" class="portfolio-link">Exit → Verified</a>
+          <a href="https://www.assently.com" target="_blank" rel="noopener" class="portfolio-link">Exit → Verified</a>
         </div>
         <div class="portfolio-card">
+          <img src="screenshot-tagd.png" alt="Tagd.ai" class="portfolio-thumb">
           <div class="portfolio-card-top">
             <p class="portfolio-status active">Aktiv</p>
             <h3 class="portfolio-name">Tagd.ai</h3>
-            <p class="portfolio-desc">Modern avtalshantering med AI i kärnan. Vi är medgrundare.</p>
+            <p class="portfolio-desc">AI-driven avtalshantering som automatiserar analys, bevakning och riskhantering av avtal. Vi är medgrundare.</p>
           </div>
           <a href="https://tagd.ai" target="_blank" rel="noopener" class="portfolio-link">tagd.ai →</a>
         </div>
         <div class="portfolio-card">
+          <img src="screenshot-tolkster.png" alt="Tolkster.ai" class="portfolio-thumb">
           <div class="portfolio-card-top">
             <p class="portfolio-status active">Aktiv</p>
             <h3 class="portfolio-name">Tolkster.ai</h3>
-            <p class="portfolio-desc">AI-driven tolkningstjänst. Vi är medgrundare.</p>
+            <p class="portfolio-desc">AI-driven tolkningstjänst med stöd för 50+ språk. Komplement till traditionell tolkning för skolor, vård och myndigheter. Vi är medgrundare.</p>
           </div>
           <a href="https://tolkster.ai" target="_blank" rel="noopener" class="portfolio-link">tolkster.ai →</a>
         </div>
@@ -763,7 +781,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-copy">© 2025 Delin och Massarsch AB</span>
-      <span class="footer-logo">DEOMA</span>
+      <span class="footer-logo">deoma</span>
     </div>
   </footer>
 
