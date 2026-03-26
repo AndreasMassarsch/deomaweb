@@ -72,25 +72,11 @@ body {
 }
 
 .nav-sigill {
-  width: 16px;
-  height: 20px;
-  border-radius: 1px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-
-.nav-sigill span {
-  flex: 1;
-}
-
-.nav-sigill span:nth-child(1),
-.nav-sigill span:nth-child(3) {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
   background: var(--red);
-}
-
-.nav-sigill span:nth-child(2) {
-  background: var(--bg);
+  flex-shrink: 0;
 }
 
 .nav-logo-name {
