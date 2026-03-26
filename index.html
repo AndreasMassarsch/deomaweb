@@ -68,14 +68,20 @@
 
     .nav-logo {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      flex-direction: column;
+      gap: 4px;
       text-decoration: none;
+    }
+
+    .nav-logo-top {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
     .nav-sigill {
       width: 16px;
-      height: 24px;
+      height: 20px;
       border-radius: 1px;
       display: flex;
       flex-direction: column;
@@ -95,11 +101,6 @@
       background: var(--bg);
     }
 
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
     .nav-logo-name {
       font-size: 1.5rem;
       font-weight: 500;
@@ -114,7 +115,6 @@
       letter-spacing: 0.2em;
       color: var(--muted);
       text-transform: uppercase;
-      margin-top: 2px;
     }
 
     .nav-links {
@@ -610,15 +610,15 @@
   <div class="nav-wrapper">
     <nav class="nav">
       <a href="#" class="nav-logo">
-        <div class="nav-sigill">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="nav-logo-text">
+        <div class="nav-logo-top">
+          <div class="nav-sigill">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <span class="nav-logo-name">deoma</span>
-          <span class="nav-logo-sub">delin & massarsch ab</span>
         </div>
+        <span class="nav-logo-sub">delin & massarsch ab</span>
       </a>
       <ul class="nav-links">
         <li><a href="#services">Vad vi gör</a></li>
@@ -730,15 +730,6 @@
           <p>Vi har grundat och drivit bolag inom e-signering, projekthantering, avtals-AI och tolkning. Flera har förvärvats, andra driver vi fortfarande. Vi vet vad det krävs i varje fas — från första prototypen till lönsam tillväxt.</p>
           <p>Vi investerar eget kapital, jobbar hands-on och stannar kvar tills det funkar.</p>
         </div>
-        <div class="about-founders">
-          <div class="founder">
-            <img src="andreas.jpeg" alt="Andreas Massarsch" class="founder-img">
-            <div>
-              <div class="founder-name">Andreas Massarsch</div>
-              <div class="founder-role">Kontakt</div>
-            </div>
-          </div>
-        </div>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-number">25+</div>
@@ -755,6 +746,15 @@
           <div class="stat">
             <div class="stat-number">3</div>
             <div class="stat-label">Sätt vi hjälper</div>
+          </div>
+        </div>
+        <div class="about-founders">
+          <div class="founder">
+            <img src="andreas.jpeg" alt="Andreas Massarsch" class="founder-img">
+            <div>
+              <div class="founder-name">Andreas Massarsch</div>
+              <div class="founder-role">Kontakt</div>
+            </div>
           </div>
         </div>
       </div>
