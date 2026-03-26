@@ -152,10 +152,20 @@
       margin: 0 auto;
       padding: 0 2.5rem;
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
     }
 
     .hero-content {
       animation: fadeIn 0.5s ease both;
+      flex: 1;
+    }
+
+    .hero-graphic {
+      flex-shrink: 0;
+      animation: fadeIn 0.8s ease both;
     }
 
     @keyframes fadeIn {
@@ -554,6 +564,10 @@
         gap: 1.5rem;
       }
 
+      .hero-graphic {
+        display: none;
+      }
+
       .services-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -622,7 +636,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="#services">Vad vi gör</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#portfolio">Bolag</a></li>
         <li><a href="#about">Om oss</a></li>
         <li><a href="#contact">Kontakt</a></li>
       </ul>
@@ -639,9 +653,93 @@
         <div class="hero-line"></div>
         <p class="hero-desc">Vi bygger digitala tjänster från första skissen till färdig produkt — med eget kapital, egna händer och ett genuint engagemang.</p>
         <div class="hero-actions">
-          <a href="#portfolio" class="btn-primary">Se vår portfolio</a>
+          <a href="#portfolio" class="btn-primary">Se våra bolag</a>
           <a href="#about" class="text-link">Läs om oss →</a>
         </div>
+      </div>
+      <div class="hero-graphic">
+        <svg width="440" height="420" viewBox="0 0 580 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(2px,-4px); } }
+            @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-3px,3px); } }
+            @keyframes float3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(3px,2px); } }
+            @keyframes float4 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-2px,-3px); } }
+            @keyframes drift1 { 0%,100% { transform: translate(20px,12px) rotate(3deg); } 50% { transform: translate(14px,20px) rotate(5deg); } }
+            @keyframes drift2 { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(-2deg) translate(4px,-6px); } }
+            .p1 { animation: float1 6s ease-in-out infinite; }
+            .p2 { animation: float2 7s ease-in-out infinite; }
+            .p3 { animation: float3 8s ease-in-out infinite; }
+            .p4 { animation: float4 5s ease-in-out infinite; }
+            .p5 { animation: drift1 9s ease-in-out infinite; transform-origin: 130px 460px; }
+            .p6 { animation: drift2 10s ease-in-out infinite; transform-origin: 480px 400px; }
+          </style>
+
+          <!-- Piece 1: WEB (top-left, wide) -->
+          <g class="p1">
+            <path d="M15,15 Q15,10 20,10 L245,10 Q250,10 250,15
+              L250,70 C255,70 270,72 270,90 C270,108 255,110 250,110
+              L250,155 Q250,160 245,160
+              L130,160 C130,165 128,180 110,180 C92,180 90,165 90,160
+              L20,160 Q15,160 15,155 Z" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+            <text x="130" y="95" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="16" font-weight="400" letter-spacing="0.2em">WEB</text>
+          </g>
+
+          <!-- Piece 2: AI (top-right, narrow tall) -->
+          <g class="p2">
+            <path d="M290,15 Q290,10 295,10 L395,10 Q400,10 400,15
+              L400,155 Q400,160 395,160
+              L340,160 C340,165 338,180 320,180 C302,180 300,165 300,160
+              L295,160 Q290,160 290,155
+              L290,110 C285,110 270,108 270,90 C270,72 285,70 290,70
+              Z" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+            <text x="345" y="95" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="16" font-weight="400" letter-spacing="0.2em">AI</text>
+          </g>
+
+          <!-- Piece 3: INNOVATION (middle, large, red) -->
+          <g class="p3">
+            <path d="M15,200 Q15,195 20,195
+              L90,195 C90,190 92,175 110,175 C128,175 130,190 130,195
+              L245,195 Q250,195 250,200
+              L250,260 C255,260 270,262 270,280 C270,298 255,300 250,300
+              L250,365 Q250,370 245,370
+              L130,370 C130,375 128,390 110,390 C92,390 90,375 90,370
+              L20,370 Q15,370 15,365 Z" fill="none" stroke="#CC0000" stroke-width="1.25"/>
+            <text x="130" y="288" text-anchor="middle" fill="#CC0000" font-family="DM Sans" font-size="12" font-weight="500" letter-spacing="0.18em">INNOVATION</text>
+          </g>
+
+          <!-- Piece 4: MOBIL (middle-right, small) -->
+          <g class="p4">
+            <path d="M290,200 Q290,195 295,195
+              L300,195 C300,190 302,175 320,175 C338,175 340,190 340,195
+              L395,195 Q400,195 400,200
+              L400,310 Q400,315 395,315
+              L295,315 Q290,315 290,310
+              L290,300 C285,300 270,298 270,280 C270,262 285,260 290,260
+              Z" fill="none" stroke="#888" stroke-width="1"/>
+            <text x="345" y="260" text-anchor="middle" fill="#555" font-family="DM Sans" font-size="14" font-weight="400" letter-spacing="0.2em">MOBIL</text>
+          </g>
+
+          <!-- Piece 5: AFFÄR (bottom, loose, drifting) -->
+          <g class="p5">
+            <path d="M15,410 Q15,405 20,405
+              L90,405 C90,400 92,385 110,385 C128,385 130,400 130,405
+              L245,405 Q250,405 250,410
+              L250,500 Q250,505 245,505
+              L20,505 Q15,505 15,500 Z" fill="none" stroke="#CC0000" stroke-width="1" stroke-dasharray="5,4"/>
+            <text x="130" y="462" text-anchor="middle" fill="#CC0000" font-family="DM Sans" font-size="14" font-weight="500" letter-spacing="0.18em" opacity="0.5">AFFÄR</text>
+          </g>
+
+          <!-- Piece 6: FINANSIERING (floating, loose, drifting) -->
+          <g class="p6">
+            <path d="M430,340 Q430,335 435,335
+              L555,335 Q560,335 560,340
+              L560,430 Q560,435 555,435
+              L500,435 C500,440 498,455 480,455 C462,455 460,440 460,435
+              L435,435 Q430,435 430,430 Z" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="5,4"/>
+            <text x="495" y="388" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="9.5" font-weight="400" letter-spacing="0.15em" opacity="0.5">FINANSIERING</text>
+          </g>
+
+        </svg>
       </div>
     </div>
   </section>
