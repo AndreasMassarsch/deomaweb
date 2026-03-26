@@ -400,11 +400,51 @@
       margin-bottom: 1.5rem;
     }
 
+    .about-founders {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .founder {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .founder-img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      flex-shrink: 0;
+    }
+
+    .founder-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+
+    .founder-role {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .about-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      margin-top: 4rem;
+      margin-top: 2rem;
       grid-column: 1 / -1;
     }
 
@@ -508,6 +548,11 @@
       }
 
       .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-founders {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
@@ -661,9 +706,25 @@
           <h2 class="section-title">Deoma i korthet.</h2>
         </div>
         <div class="about-text">
-          <p>Deoma grundades av Delin och Massarsch med en enkel övertygelse: de bästa digitala produkterna föds när erfarna byggare är med från dag ett.</p>
-          <p>Vi har vunnit, vi har lärt oss, och vi bär med oss ett starkt nätverk, en känsla för timing och ett genuint intresse för problemlösning.</p>
-          <p>Letar du efter en partner som förstår tekniken, marknaden och vad det kostar att bygga något verkligt? Hör av dig.</p>
+          <p>Deoma grundades av Andreas Massarsch och Pernilla Delin Massarsch — med en enkel idé: de bästa digitala produkterna byggs av folk som gjort det förut och gärna gör det igen.</p>
+          <p>Andreas har grundat och byggt bolag i över 25 år — bland annat Webforum.com, Assently (förvärvat av Verified) och senast Tagd.ai. Pernilla har lika lång erfarenhet av att ta teknik till marknad, med ledande roller inom marknadsföring på HP, Com Hem och Capgemini.</p>
+          <p>Tillsammans täcker vi hela kedjan: från produktidé och teknik till go-to-market och kommersialisering. Vi investerar eget kapital, jobbar hands-on och stannar kvar tills det funkar.</p>
+        </div>
+        <div class="about-founders">
+          <div class="founder">
+            <img src="andreas.jpeg" alt="Andreas Massarsch" class="founder-img">
+            <div>
+              <div class="founder-name">Andreas Massarsch</div>
+              <div class="founder-role">Grundare &amp; entreprenör</div>
+            </div>
+          </div>
+          <div class="founder">
+            <img src="pernilla.jpeg" alt="Pernilla Delin Massarsch" class="founder-img">
+            <div>
+              <div class="founder-name">Pernilla Delin Massarsch</div>
+              <div class="founder-role">Grundare &amp; marknad</div>
+            </div>
+          </div>
         </div>
         <div class="about-stats">
           <div class="stat">
