@@ -13,7 +13,9 @@
   <link rel="alternate" hreflang="de" href="https://deomaweb.vercel.app/de.html">
   <link rel="alternate" hreflang="x-default" href="https://deomaweb.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -39,7 +41,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       color: var(--text);
-      background: transparent;
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -55,7 +57,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: transparent;
+      background: var(--bg);
     }
 
     .nav {
@@ -107,7 +109,7 @@
     }
 
     .nav-sigill span:nth-child(2) {
-      background: transparent;
+      background: var(--bg);
     }
 
     .nav-logo-name {
@@ -167,7 +169,7 @@
       display: flex;
       align-items: center;
       gap: 0.3rem;
-      transition: border-color 0.2s;
+      transition: color 0.2s;
     }
 
     .lang-switch-btn:hover {
@@ -223,7 +225,7 @@
       display: flex;
       align-items: flex-start;
       padding-top: 20vh;
-      background: transparent;
+      background: var(--bg);
     }
 
     .hero-inner {
@@ -355,7 +357,7 @@
       padding: 0 2.5rem;
     }
 
-    /* ── Was wir tun ── */
+    /* ── Vad vi gör ── */
     .services {
       background: var(--bg-alt);
       padding: 140px 0;
@@ -403,7 +405,7 @@
 
     /* ── Portfolio ── */
     .portfolio {
-      background: transparent;
+      background: var(--bg);
       padding: 140px 0;
     }
 
@@ -491,7 +493,37 @@
       color: var(--red);
     }
 
-    /* ── Über uns ── */
+    .portfolio-card--cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #DDD;
+      background: transparent;
+      text-align: center;
+    }
+
+    .portfolio-card--cta .portfolio-name {
+      color: var(--muted);
+    }
+
+    .portfolio-card--cta .portfolio-desc {
+      color: var(--muted);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .portfolio-card--cta .portfolio-link {
+      color: var(--red);
+    }
+
+    .founder--inline {
+      margin-top: 2.5rem;
+    }
+
+    .founder-role a {
+      color: var(--red);
+    }
+
+    /* ── Om oss ── */
     .about {
       background: var(--bg-alt);
       padding: 140px 0;
@@ -509,15 +541,6 @@
       line-height: 1.75;
       color: var(--text);
       margin-bottom: 1.5rem;
-    }
-
-    .about-founders {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
     }
 
     .founder {
@@ -549,56 +572,6 @@
       text-transform: uppercase;
       color: var(--muted);
       line-height: 1.5;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 2rem;
-      grid-column: 1 / -1;
-    }
-
-    .stat {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--black);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ── Kontakt ── */
-    .contact {
-      background: var(--black);
-      padding: 120px 0;
-    }
-
-    .contact .section-label {
-      color: #555555;
-    }
-
-    .contact .section-title {
-      color: #FFFFFF;
-    }
-
-    .contact-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted);
-      margin-bottom: 3rem;
     }
 
     /* ── Footer ── */
@@ -667,15 +640,6 @@
         gap: 2rem;
       }
 
-      .about-founders {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .about-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .container {
         padding: 0 1.5rem;
       }
@@ -687,10 +651,6 @@
       .services,
       .portfolio,
       .about {
-        padding: 80px 0;
-      }
-
-      .contact {
         padding: 80px 0;
       }
 
@@ -903,11 +863,11 @@
           </div>
           <a href="https://www.assently.com" target="_blank" rel="noopener" class="portfolio-link">Exit → Verified</a>
         </div>
-        <div class="portfolio-card" style="display:flex;align-items:center;justify-content:center;border:2px dashed #DDD;background:transparent;">
-          <div style="text-align:center;">
-            <h3 class="portfolio-name" style="color:var(--muted);">Nächstes Projekt?</h3>
-            <p class="portfolio-desc" style="color:var(--muted);margin:0.5rem 0 1rem;">Melden Sie sich, wenn Sie denken, dass wir gut zusammenpassen.</p>
-            <a href="mailto:andreas@deoma.se" class="portfolio-link" style="color:var(--red);">Kontaktieren Sie uns →</a>
+        <div class="portfolio-card portfolio-card--cta">
+          <div>
+            <h3 class="portfolio-name">Nächstes Projekt?</h3>
+            <p class="portfolio-desc">Melden Sie sich, wenn Sie denken, dass wir gut zusammenpassen.</p>
+            <a href="mailto:andreas@deoma.se" class="portfolio-link">Kontaktieren Sie uns →</a>
           </div>
         </div>
       </div>
@@ -926,11 +886,11 @@
           <p>Deoma — kurz für Delin & Massarsch — verbindet Neugier auf die neueste Technologie mit über 25 Jahren Erfahrung darin, Dinge tatsächlich voranzutreiben und umzusetzen. Wir wissen, wie man eine Idee den ganzen Weg vom Whiteboard bis zum Markt bringt.</p>
           <p>Wir haben Unternehmen in den Bereichen E-Signatur, Projektmanagement, Vertrags-KI und Dolmetschen gegründet und geführt. Mehrere wurden akquiriert, andere betreiben wir weiterhin. Wir wissen, was es in jeder Phase braucht — vom ersten Prototyp bis zum profitablen Wachstum.</p>
           <p>Wir investieren eigenes Kapital, arbeiten hands-on und bleiben, bis es funktioniert.</p>
-          <div class="founder" style="margin-top:2.5rem;">
+          <div class="founder founder--inline">
             <img src="andreas.jpeg" alt="Andreas Massarsch" class="founder-img">
             <div>
               <div class="founder-name">Andreas Massarsch</div>
-              <div class="founder-role">Kontakt — <a href="mailto:andreas@deoma.se" style="color:var(--red);">andreas@deoma.se</a></div>
+              <div class="founder-role">Kontakt — <a href="mailto:andreas@deoma.se" >andreas@deoma.se</a></div>
             </div>
           </div>
         </div>
