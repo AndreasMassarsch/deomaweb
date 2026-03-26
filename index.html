@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deoma — Delin & Massarsch AB</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #CC0000;
+      --black: #111111;
+      --text: #1A1A1A;
+      --muted: #888888;
+      --border: #E0E0E0;
+      --bg: #FFFFFF;
+      --bg-alt: #F5F5F5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Nav ── */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    .nav-rule {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--black);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-sigill {
+      width: 4px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .nav-sigill span {
+      flex: 1;
+    }
+
+    .nav-sigill span:nth-child(1),
+    .nav-sigill span:nth-child(3) {
+      background: var(--red);
+    }
+
+    .nav-sigill span:nth-child(2) {
+      background: var(--bg);
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-logo-name {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .nav-logo-sub {
+      font-size: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      height: calc(100vh - 82px);
+      display: flex;
+      align-items: flex-start;
+      padding-top: 20vh;
+      background: var(--bg);
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      width: 100%;
+    }
+
+    .hero-content {
+      animation: fadeIn 0.5s ease both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      line-height: 1.05;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-line {
+      width: 40px;
+      height: 2px;
+      background: var(--red);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text);
+      max-width: 50ch;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--red);
+      color: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 0;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #a30000;
+    }
+
+    .text-link {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .text-link:hover {
+      color: var(--red);
+    }
+
+    /* ── Section shared ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 4rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* ── Vad vi gör ── */
+    .services {
+      background: var(--bg-alt);
+      padding: 140px 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .service-card {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      transition: border-color 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--red);
+    }
+
+    .service-number {
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    /* ── Portfolio ── */
+    .portfolio {
+      background: var(--bg);
+      padding: 140px 0;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .portfolio-card {
+      background: var(--bg-alt);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+    }
+
+    .portfolio-card-top {
+      margin-bottom: 1.5rem;
+    }
+
+    .portfolio-status {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-status.active {
+      color: var(--red);
+    }
+
+    .portfolio-status.active::before {
+      content: '● ';
+    }
+
+    .portfolio-name {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .portfolio-link {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-top: auto;
+    }
+
+    .portfolio-link:hover {
+      color: var(--red);
+    }
+
+    /* ── Om oss ── */
+    .about {
+      background: var(--bg-alt);
+      padding: 140px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+      grid-column: 1 / -1;
+    }
+
+    .stat {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Kontakt ── */
+    .contact {
+      background: var(--black);
+      padding: 120px 0;
+    }
+
+    .contact .section-label {
+      color: #555555;
+    }
+
+    .contact .section-title {
+      color: #FFFFFF;
+    }
+
+    .contact-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid #333333;
+      padding: 2rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #555555;
+    }
+
+    .footer-logo {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: #333333;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 12vh;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .nav {
+        padding: 0 1.5rem;
+      }
+
+      .services,
+      .portfolio,
+      .about {
+        padding: 80px 0;
+      }
+
+      .contact {
+        padding: 80px 0;
+      }
+
+      .footer {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <div class="nav-wrapper">
+    <nav class="nav">
+      <a href="#" class="nav-logo">
+        <div class="nav-sigill">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">DEOMA</span>
+          <span class="nav-logo-sub">Delin & Massarsch AB</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Vad vi gör</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">Om oss</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="nav-rule"></div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Innovation · Investering · Rådgivning</p>
+        <h1 class="hero-title">Vi bygger idéer<br>som blir bolag.</h1>
+        <div class="hero-line"></div>
+        <p class="hero-desc">Deoma är ett boutique-innovationsbolag med lång erfarenhet av att ta digitala tjänster från idé till marknad — med eget kapital, egna händer och ett genuint engagemang.</p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn-primary">Se vår portfolio</a>
+          <a href="#about" class="text-link">Läs om oss →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vad vi gör -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-label">Vad vi gör</p>
+      <h2 class="section-title">Tre sätt vi<br>skapar värde.</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3 class="service-name">Egna tjänster</h3>
+          <p class="service-desc">Vi identifierar problem som förtjänar eleganta lösningar. Från koncept till lansering.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3 class="service-name">Tidig investering</h3>
+          <p class="service-desc">Vi investerar kapital och kompetens mot ägarandel — men bara med en aktiv roll.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3 class="service-name">Rådgivning</h3>
+          <p class="service-desc">Ibland är den bästa insatsen en klok röst i rummet. Vi är erfarna bollplank och konsulter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <p class="section-label">Trackrecord</p>
+      <h2 class="section-title">Bolag vi byggt.</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-card-top">
+            <p class="portfolio-status">Förvärvad</p>
+            <h3 class="portfolio-name">Avima</h3>
+            <p class="portfolio-desc">Startade som webforum.com. Ett av Sveriges tidiga communities.</p>
+          </div>
+          <a href="#" class="portfolio-link">Exit → IB Finder</a>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-card-top">
+            <p class="portfolio-status">Förvärvad</p>
+            <h3 class="portfolio-name">Assently</h3>
+            <p class="portfolio-desc">Pionjär inom e-signering på den svenska marknaden.</p>
+          </div>
+          <a href="#" class="portfolio-link">Exit → Verified</a>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-card-top">
+            <p class="portfolio-status active">Aktiv</p>
+            <h3 class="portfolio-name">Tagd.ai</h3>
+            <p class="portfolio-desc">Modern avtalshantering med AI i kärnan. Vi är grundare.</p>
+          </div>
+          <a href="https://tagd.ai" target="_blank" rel="noopener" class="portfolio-link">tagd.ai →</a>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-card-top">
+            <p class="portfolio-status active">Aktiv</p>
+            <h3 class="portfolio-name">Tolkster.ai</h3>
+            <p class="portfolio-desc">AI-driven tolkningstjänst. Vi är grundare.</p>
+          </div>
+          <a href="https://tolkster.ai" target="_blank" rel="noopener" class="portfolio-link">tolkster.ai →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Om oss -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <p class="section-label">Om oss</p>
+          <h2 class="section-title">Deoma i korthet.</h2>
+        </div>
+        <div class="about-text">
+          <p>Deoma grundades av Delin och Massarsch med en enkel övertygelse: de bästa digitala produkterna föds när erfarna byggare är med från dag ett.</p>
+          <p>Vi har vunnit, vi har lärt oss, och vi bär med oss ett starkt nätverk, en känsla för timing och ett genuint intresse för problemlösning.</p>
+          <p>Letar du efter en partner som förstår tekniken, marknaden och vad det kostar att bygga något verkligt? Hör av dig.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Års erfarenhet</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Lyckade exits</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Aktiva bolag</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Sätt vi hjälper</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="section-label">Kontakt</p>
+      <h2 class="section-title">Har du ett projekt?</h2>
+      <p class="contact-sub">Hör av dig — vi svarar alltid.</p>
+      <a href="mailto:hej@deoma.se" class="btn-primary">hej@deoma.se</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Delin och Massarsch AB</span>
+      <span class="footer-logo">DEOMA</span>
+    </div>
+  </footer>
+
+</body>
+</html>
