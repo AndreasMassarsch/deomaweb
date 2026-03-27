@@ -41,6 +41,36 @@
         "Utöka språkstöd",
         "Lansera pilotprogram med kommuner"
       ]
+    },
+    {
+      "id": "yourace",
+      "name": "YouRace",
+      "logo": "logo-yourace.png",
+      "summary": "GPS-loggning och automatiskt genererade varvsvideos för trackdays",
+      "description": "YouRace låter förare logga sina körningar offline direkt från fickan med en iOS-app. GPS-data synkas till molnet och används för att automatiskt generera en video av varje varv — komplett med GPS-spår, hastighet och telemetri. Användaren loggar in på webben, väljer ett varv och betalar för att ladda hem sin video.",
+      "url": "https://yourace-wine.vercel.app",
+      "status": "active",
+      "updates": [
+        {
+          "date": "2026-03-27",
+          "items": [
+            "iOS-app med GPS-loggning, offline-stöd och synk",
+            "Motorsport-design med Pirelli-inspirerad webbsida",
+            "YouRace-logga framtagen och integrerad i app och webb",
+            "Supabase-backend med sessions, koordinater och profiler",
+            "Magic Link-inloggning på webben (Apple Sign In kommer)",
+            "Admin-panel med översikt av alla användare och sessioner",
+            "Deployad på Vercel via GitHub (yourace-wine.vercel.app)"
+          ]
+        }
+      ],
+      "planned": [
+        "Aktivera Apple Sign In när Apple Developer-konto är klart",
+        "Implementera videogenerering från GPS-data",
+        "Betalflöde för nedladdning av varvsvideos",
+        "Kartvy på webben med Leaflet",
+        "Varvtidsjämförelse session för session"
+      ]
     }
   ]
 }
