@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "id": "tagd",
+      "name": "Tagd.ai",
+      "logo": "logo-tagd.png",
+      "summary": "AI-driven avtalsanalys och bevakning",
+      "description": "Tagd.ai automatiserar analys, bevakning och riskhantering av avtal. Hjälper juridiska team och inköpsavdelningar att spara tid och minska risk genom att låta AI läsa, tolka och bevaka avtalsvillkor.",
+      "url": "https://tagd.ai",
+      "status": "active",
+      "updates": [
+        {
+          "date": "2026-03-27",
+          "items": [
+            "Dashboard skapad med projektöversikt"
+          ]
+        }
+      ],
+      "planned": [
+        "Lägga till stöd för engelska avtal",
+        "Integrera med Fortnox"
+      ]
+    },
+    {
+      "id": "tolkster",
+      "name": "Tolkster.ai",
+      "logo": "logo-tolkster.png",
+      "summary": "AI-driven tolkning med 50+ språk",
+      "description": "AI-driven tolkningstjänst med stöd för 50+ språk. Ett snabbt och kostnadseffektivt komplement till traditionell tolkning — byggt för skolor, vård och myndigheter som behöver hjälp här och nu.",
+      "url": "https://tolkster.ai",
+      "status": "active",
+      "updates": [
+        {
+          "date": "2026-03-27",
+          "items": [
+            "Dashboard skapad med projektöversikt"
+          ]
+        }
+      ],
+      "planned": [
+        "Utöka språkstöd",
+        "Lansera pilotprogram med kommuner"
+      ]
+    }
+  ]
+}

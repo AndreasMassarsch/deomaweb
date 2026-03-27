@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Deoma</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- Red top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Nav -->
+  <div class="nav-wrapper">
+    <nav class="nav">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-top">
+          <div class="nav-sigill"></div>
+          <span class="nav-logo-name">deoma</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Tillbaka till sidan</a></li>
+      </ul>
+      <button class="dash-logout" id="logoutBtn" style="display:none">Logga ut</button>
+    </nav>
+    <div class="nav-rule"></div>
+  </div>
+
+  <!-- Login -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <h2>Dashboard</h2>
+      <form id="loginForm">
+        <input type="password" class="login-input" id="passwordInput" placeholder="Losenord" autocomplete="off" autofocus>
+        <button type="submit" class="login-btn">Logga in</button>
+        <p class="login-error" id="loginError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard overview -->
+  <div class="dash-hidden" id="dashContent">
+    <section class="dashboard">
+      <div class="container">
+        <div class="dash-header">
+          <div>
+            <p class="section-label">Dashboard</p>
+            <h2 class="section-title">Aktiva projekt.</h2>
+          </div>
+        </div>
+        <div class="dash-grid" id="dashGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Project detail -->
+  <div class="dash-hidden" id="dashDetail">
+    <section class="dash-detail visible">
+      <div class="container">
+        <button class="dash-back" id="backBtn">&larr; Tillbaka</button>
+        <div class="dash-detail-header" id="detailHeader"></div>
+        <p class="dash-detail-desc" id="detailDesc"></p>
+        <a class="dash-detail-link" id="detailLink" target="_blank" rel="noopener"></a>
+
+        <div class="dash-timeline" id="timelineSection">
+          <h3 class="dash-section-title">Senaste uppdateringar</h3>
+          <div id="timeline"></div>
+        </div>
+
+        <div id="plannedSection">
+          <h3 class="dash-section-title">Planerat</h3>
+          <ul class="dash-planned-list" id="planned"></ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2025 Delin och Massarsch AB</span>
+      <span class="footer-logo">deoma</span>
+    </div>
+  </footer>
+
+  <script>
+    const PASS_HASH = 'f0d5776400000038'; // simple hash of "Montella"
+    let projectsData = [];
+
+    function simpleHash(str) {
+      let h = 0;
+      for (let i = 0; i < str.length; i++) {
+        h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+      }
+      return (h >>> 0).toString(16).padStart(8, '0') + (str.length * 7).toString(16).padStart(8, '0');
+    }
+
+    // Auth
+    function isLoggedIn() {
+      return sessionStorage.getItem('deoma_dash') === PASS_HASH;
+    }
+
+    function showDashboard() {
+      document.getElementById('loginOverlay').style.display = 'none';
+      document.getElementById('dashContent').classList.remove('dash-hidden');
+      document.getElementById('logoutBtn').style.display = '';
+      loadProjects();
+    }
+
+    function showLogin() {
+      document.getElementById('loginOverlay').style.display = '';
+      document.getElementById('dashContent').classList.add('dash-hidden');
+      document.getElementById('dashDetail').classList.add('dash-hidden');
+      document.getElementById('logoutBtn').style.display = 'none';
+      sessionStorage.removeItem('deoma_dash');
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const pw = document.getElementById('passwordInput').value;
+      if (simpleHash(pw) === PASS_HASH) {
+        sessionStorage.setItem('deoma_dash', PASS_HASH);
+        showDashboard();
+      } else {
+        document.getElementById('loginError').textContent = 'Fel losenord';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('passwordInput').focus();
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', showLogin);
+
+    // Load projects
+    async function loadProjects() {
+      try {
+        const res = await fetch('projects.json?t=' + Date.now());
+        const data = await res.json();
+        projectsData = data.projects;
+        renderGrid();
+      } catch (err) {
+        document.getElementById('dashGrid').innerHTML =
+          '<p style="color:var(--muted)">Kunde inte ladda projekt.</p>';
+      }
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('dashGrid');
+      grid.innerHTML = projectsData.map(function(p) {
+        const statusClass = p.status === 'active' ? ' active' : '';
+        const statusText = p.status === 'active' ? 'Aktiv' : p.status;
+        return '<div class="dash-card" data-id="' + p.id + '">' +
+          (p.logo ? '<img src="' + p.logo + '" alt="' + p.name + '" class="dash-card-logo">' : '') +
+          '<p class="dash-card-status' + statusClass + '">' + statusText + '</p>' +
+          '<h3 class="dash-card-name">' + p.name + '</h3>' +
+          '<p class="dash-card-summary">' + p.summary + '</p>' +
+          '</div>';
+      }).join('');
+
+      grid.querySelectorAll('.dash-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          showDetail(card.dataset.id);
+        });
+      });
+    }
+
+    function showDetail(id) {
+      const p = projectsData.find(function(x) { return x.id === id; });
+      if (!p) return;
+
+      document.getElementById('dashContent').classList.add('dash-hidden');
+      document.getElementById('dashDetail').classList.remove('dash-hidden');
+      window.scrollTo(0, 0);
+
+      // Header
+      const header = document.getElementById('detailHeader');
+      header.innerHTML =
+        (p.logo ? '<img src="' + p.logo + '" alt="' + p.name + '" class="dash-detail-logo">' : '') +
+        '<div><h2 style="font-size:1.8rem;font-weight:500;color:var(--black);margin-bottom:0.25rem">' + p.name + '</h2>' +
+        (p.status === 'active' ? '<p class="dash-detail-status">Aktiv</p>' : '') +
+        '</div>';
+
+      // Description
+      document.getElementById('detailDesc').textContent = p.description || '';
+
+      // Link
+      const link = document.getElementById('detailLink');
+      if (p.url) {
+        link.href = p.url;
+        link.textContent = p.url.replace('https://', '') + ' \u2192';
+        link.style.display = '';
+      } else {
+        link.style.display = 'none';
+      }
+
+      // Timeline
+      const timeline = document.getElementById('timeline');
+      const timelineSection = document.getElementById('timelineSection');
+      if (p.updates && p.updates.length > 0) {
+        timelineSection.style.display = '';
+        timeline.innerHTML = p.updates
+          .slice()
+          .sort(function(a, b) { return b.date.localeCompare(a.date); })
+          .map(function(u) {
+            var items = u.items || (u.summary ? [u.summary] : []);
+            return '<div class="dash-update">' +
+              '<span class="dash-update-date">' + u.date + '</span>' +
+              '<div class="dash-update-items">' +
+              items.map(function(item) {
+                return '<div class="dash-update-text">' + item + '</div>';
+              }).join('') +
+              '</div></div>';
+          }).join('');
+      } else {
+        timelineSection.style.display = 'none';
+      }
+
+      // Planned
+      const planned = document.getElementById('planned');
+      const plannedSection = document.getElementById('plannedSection');
+      if (p.planned && p.planned.length > 0) {
+        plannedSection.style.display = '';
+        planned.innerHTML = p.planned.map(function(item) {
+          return '<li>' + item + '</li>';
+        }).join('');
+      } else {
+        plannedSection.style.display = 'none';
+      }
+    }
+
+    document.getElementById('backBtn').addEventListener('click', function() {
+      document.getElementById('dashDetail').classList.add('dash-hidden');
+      document.getElementById('dashContent').classList.remove('dash-hidden');
+      window.scrollTo(0, 0);
+    });
+
+    // Init
+    if (isLoggedIn()) {
+      showDashboard();
+    }
+  </script>
+
+</body>
+</html>
