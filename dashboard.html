@@ -27,9 +27,11 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="/">Tillbaka till sidan</a></li>
+        <li><a href="/#services">Vad vi gör</a></li>
+        <li><a href="/#portfolio">Projekt</a></li>
+        <li><a href="/#about">Om oss & Kontakt</a></li>
+        <li id="logoutItem" style="display:none"><a href="#" id="logoutBtn">Logga ut</a></li>
       </ul>
-      <button class="dash-logout" id="logoutBtn" style="display:none">Logga ut</button>
     </nav>
     <div class="nav-rule"></div>
   </div>
@@ -124,7 +126,7 @@
     function showDashboard() {
       document.getElementById('loginOverlay').style.display = 'none';
       document.getElementById('dashContent').classList.remove('dash-hidden');
-      document.getElementById('logoutBtn').style.display = '';
+      document.getElementById('logoutItem').style.display = '';
       loadProjects();
     }
 
@@ -132,7 +134,7 @@
       document.getElementById('loginOverlay').style.display = '';
       document.getElementById('dashContent').classList.add('dash-hidden');
       document.getElementById('dashDetail').classList.add('dash-hidden');
-      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('logoutItem').style.display = 'none';
       sessionStorage.removeItem('deoma_dash');
     }
 
@@ -149,7 +151,10 @@
       }
     });
 
-    document.getElementById('logoutBtn').addEventListener('click', showLogin);
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      showLogin();
+    });
 
     // Load projects
     async function loadProjects() {
