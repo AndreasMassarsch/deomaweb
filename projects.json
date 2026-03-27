@@ -45,7 +45,7 @@
     {
       "id": "yourace",
       "name": "YouRace",
-      "logo": "logo-yourace.png",
+      "logo": "logo-yourace.svg",
       "summary": "GPS-loggning och automatiskt genererade varvsvideos för trackdays",
       "description": "YouRace låter förare logga sina körningar offline direkt från fickan med en iOS-app. GPS-data synkas till molnet och används för att automatiskt generera en video av varje varv — komplett med GPS-spår, hastighet och telemetri. Användaren loggar in på webben, väljer ett varv och betalar för att ladda hem sin video.",
       "url": "https://yourace-wine.vercel.app",

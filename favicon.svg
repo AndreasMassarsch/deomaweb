@@ -1,3 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect x="4" y="4" width="24" height="24" rx="2" fill="#CC0000"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- D: rounded left side with straight right -->
+  <path d="
+    M20,5 L55,5
+    C80,5 95,22 95,50
+    C95,78 80,95 55,95
+    L20,95
+    C8,95 5,88 5,80
+    L5,20
+    C5,12 8,5 20,5 Z
+    M20,16
+    C15,16 16,20 16,20
+    L16,80
+    C16,84 18,84 20,84
+    L55,84
+    C73,84 84,72 84,50
+    C84,28 73,16 55,16
+    Z" fill="#CC0000" fill-rule="evenodd"/>
+  <!-- M inside the D -->
+  <path d="
+    M28,70 L28,35
+    L40,35 L50,52 L60,35
+    L72,35 L72,70
+    L62,70 L62,48 L52,64
+    L48,64 L38,48 L38,70 Z" fill="#CC0000"/>
 </svg>

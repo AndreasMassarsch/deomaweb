@@ -72,10 +72,8 @@ body {
 }
 
 .nav-sigill {
-  width: 12px;
-  height: 12px;
-  border-radius: 2px;
-  background: var(--red);
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 

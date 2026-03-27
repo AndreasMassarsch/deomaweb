@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Exempel 4 — 3D Klossar</title>
+<style>body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh;background:#fff;font-family:'DM Sans',sans-serif;}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head><body>
+<svg width="560" height="500" viewBox="0 0 560 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Isometric building blocks with keywords -->
+  <!-- Each cube: top face, left face, right face -->
+
+  <!-- === BOTTOM ROW === -->
+
+  <!-- Block: TEKNIK (bottom-left) -->
+  <g transform="translate(140, 340)">
+    <!-- Right face -->
+    <polygon points="0,0 100,50 100,120 0,70" fill="#1a1a1a"/>
+    <!-- Left face -->
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#2a2a2a"/>
+    <!-- Top face -->
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#333333"/>
+    <text x="0" y="-40" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">TEKNIK</text>
+  </g>
+
+  <!-- Block: MARKNAD (bottom-center) -->
+  <g transform="translate(340, 340)">
+    <polygon points="0,0 100,50 100,120 0,70" fill="#1a1a1a"/>
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#2a2a2a"/>
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#333333"/>
+    <text x="0" y="-40" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">MARKNAD</text>
+  </g>
+
+  <!-- === SECOND ROW === -->
+
+  <!-- Block: KAPITAL (second row left) -->
+  <g transform="translate(240, 290)">
+    <polygon points="0,0 100,50 100,120 0,70" fill="#1a1a1a"/>
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#2a2a2a"/>
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#333333"/>
+    <text x="0" y="-40" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">KAPITAL</text>
+  </g>
+
+  <!-- === SECOND ROW, stacked === -->
+
+  <!-- Block: STRATEGI (on top of TEKNIK) -->
+  <g transform="translate(140, 270)">
+    <polygon points="0,0 100,50 100,120 0,70" fill="#222"/>
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#2d2d2d"/>
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#383838"/>
+    <text x="0" y="-40" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">STRATEGI</text>
+  </g>
+
+  <!-- Block: PRODUKT (on top of MARKNAD) -->
+  <g transform="translate(340, 270)">
+    <polygon points="0,0 100,50 100,120 0,70" fill="#222"/>
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#2d2d2d"/>
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#383838"/>
+    <text x="0" y="-40" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">PRODUKT</text>
+  </g>
+
+  <!-- === THIRD ROW === -->
+
+  <!-- Block: INNOVATION (red accent, center top) -->
+  <g transform="translate(240, 220)">
+    <polygon points="0,0 100,50 100,120 0,70" fill="#a30000"/>
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#b80000"/>
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#CC0000"/>
+    <text x="0" y="-40" text-anchor="middle" fill="#fff" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.15em">INNOVATION</text>
+  </g>
+
+  <!-- === TOP === -->
+
+  <!-- Block: IDÉ → BOLAG (top, the pinnacle, red) -->
+  <g transform="translate(240, 150)">
+    <polygon points="0,0 100,50 100,120 0,70" fill="#a30000"/>
+    <polygon points="0,0 -100,50 -100,120 0,70" fill="#b80000"/>
+    <polygon points="0,0 100,-50 0,-100 -100,-50" fill="#CC0000"/>
+    <text x="0" y="-45" text-anchor="middle" fill="#fff" font-family="DM Sans" font-size="10" font-weight="400" letter-spacing="0.15em">IDÉ →</text>
+    <text x="0" y="-30" text-anchor="middle" fill="#fff" font-family="DM Sans" font-size="12" font-weight="500" letter-spacing="0.15em">BOLAG</text>
+  </g>
+
+</svg>
+</body></html>

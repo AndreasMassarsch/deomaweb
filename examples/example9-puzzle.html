@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Exempel 9 — Pussel</title>
+<style>body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh;background:#fff;}</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head><body>
+<svg width="500" height="460" viewBox="0 0 500 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Classic jigsaw puzzle, 2x2, with proper interlocking tabs/slots -->
+  <!-- Each piece is roughly 200x180 -->
+
+  <!-- Piece 1: WEB (top-left) — tab right, tab bottom -->
+  <path d="
+    M20,20 L190,20
+    L190,80 C190,80 205,75 210,85 C215,95 215,105 210,115 C205,125 190,120 190,120
+    L190,180
+    L130,180 C130,180 125,195 115,200 C105,205 95,205 85,200 C75,195 70,180 70,180
+    L20,180 Z
+  " fill="none" stroke="#C0C0C0" stroke-width="1"/>
+  <text x="105" y="108" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="15" font-weight="400" letter-spacing="0.2em">WEB</text>
+
+  <!-- Piece 2: AI (top-right) — slot left, tab bottom -->
+  <path d="
+    M210,20 L410,20
+    L410,180
+    L350,180 C350,180 345,195 335,200 C325,205 315,205 305,200 C295,195 290,180 290,180
+    L210,180
+    L210,120 C210,120 225,125 230,115 C235,105 235,95 230,85 C225,75 210,80 210,80
+    Z
+  " fill="none" stroke="#C0C0C0" stroke-width="1"/>
+  <text x="310" y="108" text-anchor="middle" fill="#888" font-family="DM Sans" font-size="15" font-weight="400" letter-spacing="0.2em">AI</text>
+
+  <!-- Piece 3: MOBIL (bottom-left) — tab right, slot top -->
+  <path d="
+    M20,200 L70,200
+    C70,200 75,215 85,220 C95,225 105,225 115,220 C125,215 130,200 130,200
+    L190,200
+    L190,260 C190,260 205,255 210,265 C215,275 215,285 210,295 C205,305 190,300 190,300
+    L190,380 L20,380 Z
+  " fill="none" stroke="#888" stroke-width="1"/>
+  <text x="105" y="300" text-anchor="middle" fill="#555" font-family="DM Sans" font-size="13" font-weight="400" letter-spacing="0.2em">MOBIL</text>
+
+  <!-- Piece 4: INNOVATION (bottom-right, red) — slot left, slot top -->
+  <path d="
+    M210,200 L290,200
+    C290,200 295,215 305,220 C315,225 325,225 335,220 C345,215 350,200 350,200
+    L410,200
+    L410,380 L210,380
+    L210,300 C210,300 225,305 230,295 C235,285 235,275 230,265 C225,255 210,260 210,260
+    Z
+  " fill="none" stroke="#CC0000" stroke-width="1.25"/>
+  <text x="310" y="295" text-anchor="middle" fill="#CC0000" font-family="DM Sans" font-size="11" font-weight="500" letter-spacing="0.2em">INNOVATION</text>
+
+  <!-- Piece 5: AFFÄR (extra piece, slightly separated, floating to bottom-right) -->
+  <g transform="translate(30, 12)">
+    <path d="
+      M430,220 L430,280 C430,280 445,275 450,285 C455,295 455,305 450,315 C445,325 430,320 430,320
+      L430,380 L560,380 L560,220
+      L500,220 C500,220 495,205 485,200 C475,195 465,195 455,200 C445,205 440,220 440,220
+      Z
+    " fill="none" stroke="#CC0000" stroke-width="1.25" stroke-dasharray="6,4"/>
+    <text x="495" y="308" text-anchor="middle" fill="#CC0000" font-family="DM Sans" font-size="13" font-weight="500" letter-spacing="0.2em" opacity="0.6">AFFÄR</text>
+  </g>
+
+</svg>
+</body></html>

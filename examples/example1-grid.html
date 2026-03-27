@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Exempel 1 — Hoffmann-rutnät</title>
+<style>body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh;background:#fff;}</style>
+</head><body>
+<!-- Variant 1: Josef Hoffmann-inspirerat rutnät med röda accenter -->
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base grid of squares -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="56" height="56" x="2" y="2" fill="none" stroke="#E0E0E0" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="480" fill="url(#grid)"/>
+
+  <!-- Black structural blocks -->
+  <rect x="62" y="62" width="56" height="56" fill="#111111"/>
+  <rect x="122" y="62" width="56" height="56" fill="#111111"/>
+  <rect x="62" y="122" width="56" height="56" fill="#111111"/>
+
+  <rect x="302" y="62" width="56" height="56" fill="#111111"/>
+  <rect x="362" y="62" width="56" height="56" fill="#111111"/>
+  <rect x="362" y="122" width="56" height="56" fill="#111111"/>
+
+  <rect x="62" y="302" width="56" height="56" fill="#111111"/>
+  <rect x="62" y="362" width="56" height="56" fill="#111111"/>
+  <rect x="122" y="362" width="56" height="56" fill="#111111"/>
+
+  <rect x="362" y="302" width="56" height="56" fill="#111111"/>
+  <rect x="302" y="362" width="56" height="56" fill="#111111"/>
+  <rect x="362" y="362" width="56" height="56" fill="#111111"/>
+
+  <!-- Red accent blocks — sparse -->
+  <rect x="182" y="182" width="56" height="56" fill="#CC0000"/>
+  <rect x="242" y="242" width="56" height="56" fill="#CC0000"/>
+
+  <!-- Single red accent squares -->
+  <rect x="182" y="62" width="56" height="56" fill="#CC0000" opacity="0.15"/>
+  <rect x="62" y="182" width="56" height="56" fill="#CC0000" opacity="0.15"/>
+  <rect x="362" y="182" width="56" height="56" fill="#CC0000" opacity="0.15"/>
+  <rect x="182" y="362" width="56" height="56" fill="#CC0000" opacity="0.15"/>
+</svg>
+</body></html>
