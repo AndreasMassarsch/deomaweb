@@ -72,5 +72,36 @@
         "Varvtidsjämförelse session för session"
       ]
     }
+    ,{
+      "id": "roadstories",
+      "name": "Road Stories",
+      "logo": "logo-roadstories.png",
+      "summary": "AI-driven reseguide som berättar om platser du passerar",
+      "description": "Road Stories är en mobiloptimerad PWA som använder GPS för att detektera var du befinner dig och genererar korta, faktabaserade ljudberättelser om platser längs vägen. Appen använder Claude Sonnet 4 för berättelsegenerering, Wikipedia och Brave Search för faktagrundning, och OpenAI TTS för röstuppläsning.",
+      "url": "https://roadstories.app",
+      "status": "active",
+      "updates": [
+        {
+          "date": "2026-03-27",
+          "items": [
+            "StoryEngine refaktorerad till fristående klass i src/engine/",
+            "Bokmärken, rabbit hole-läge, fokusläge och tipsfunktion implementerade",
+            "Admin-dashboard utökad med kartvy över platser",
+            "Discovery-steget: Claude Haiku föreslår 3 konkreta person-kandidater med söktermer",
+            "48 vinklar (8 kategorier × 6 stilar) med feedback-viktning",
+            "Personläge implementerat: enbart stories om namngivna verkliga personer, varje person berättas bara en gång",
+            "Personläge: blockerar redan berättade personer via localStorage, synkas mot API och Discovery",
+            "Dokumentation: Word-dokument och flödesschema för StoryEngine framtagna"
+          ]
+        }
+      ],
+      "planned": [
+        "Testa personläget på riktiga körningar och justera Discovery-prompten",
+        "Utöka kategorier med fler person-specifika söktermer",
+        "Förbättra hallucination-skyddet i verifieringssteget",
+        "Offline-stöd för buffrade historier",
+        "App Store-lansering som PWA"
+      ]
+    }
   ]
 }
