@@ -178,6 +178,60 @@
   display: block;
 }
 
+.dash-detail-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.dash-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.dash-copy-btn:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+.dash-copy-btn.copied {
+  color: #16a34a;
+  border-color: #16a34a;
+}
+
+.dash-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--black);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.dash-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .dash-back {
   font-size: 0.8rem;
   font-weight: 400;

@@ -37,7 +37,7 @@
   <!-- Login -->
   <div class="login-overlay" id="loginOverlay">
     <div class="login-box">
-      <h2>Dashboard</h2>
+      <h2>Login</h2>
       <form id="loginForm">
         <input type="password" class="login-input" id="passwordInput" placeholder="Losenord" autocomplete="off" autofocus>
         <button type="submit" class="login-btn">Logga in</button>
@@ -55,6 +55,10 @@
             <p class="section-label">Dashboard</p>
             <h2 class="section-title">Aktiva projekt.</h2>
           </div>
+          <button class="dash-copy-btn" id="copyNewBtn" title="Kopiera skript för nytt projekt">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Nytt projekt
+          </button>
         </div>
         <div class="dash-grid" id="dashGrid"></div>
       </div>
@@ -65,7 +69,13 @@
   <div class="dash-hidden" id="dashDetail">
     <section class="dash-detail visible">
       <div class="container">
-        <button class="dash-back" id="backBtn">&larr; Tillbaka</button>
+        <div class="dash-detail-topbar">
+          <button class="dash-back" id="backBtn">&larr; Tillbaka</button>
+          <button class="dash-copy-btn" id="copyUpdateBtn" title="Kopiera uppdateringsprompt">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Kopiera prompt
+          </button>
+        </div>
         <div class="dash-detail-header" id="detailHeader"></div>
         <p class="dash-detail-desc" id="detailDesc"></p>
         <a class="dash-detail-link" id="detailLink" target="_blank" rel="noopener"></a>
@@ -82,6 +92,9 @@
       </div>
     </section>
   </div>
+
+  <!-- Toast -->
+  <div class="dash-toast" id="toast">Kopierat!</div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -240,6 +253,70 @@
       document.getElementById('dashContent').classList.remove('dash-hidden');
       window.scrollTo(0, 0);
     });
+
+    // ── Copy prompt ──────────────────────────────────────────────────────────
+    let currentProjectId = null;
+
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg || 'Kopierat!';
+      t.classList.add('show');
+      setTimeout(function() { t.classList.remove('show'); }, 2500);
+    }
+
+    function copyToClipboard(text, btn) {
+      navigator.clipboard.writeText(text).then(function() {
+        if (btn) {
+          var orig = btn.innerHTML;
+          btn.classList.add('copied');
+          btn.innerHTML = btn.innerHTML.replace(/Nytt projekt|Kopiera prompt/, 'Kopierat!');
+          setTimeout(function() { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2000);
+        }
+        showToast('Prompt kopierad — klistra in i Claude Code');
+      });
+    }
+
+    function buildNewProjectPrompt() {
+      return [
+        'Lägg till ett nytt projekt i deoma-dashboarden.',
+        '',
+        '1. Hämta live-versionen från https://www.deoma.se/projects.json (WebFetch) — det är source of truth.',
+        '2. Fråga mig: projektnamn, URL, kort sammanfattning (1 mening) och beskrivning (2-3 meningar).',
+        '3. Skapa ett lämpligt id (kebab-case, t.ex. "mitt-projekt").',
+        '4. Hitta logga: kolla /public/ i projektmappen eller ~/Downloads/. Kopiera bästa kandidaten till /Users/andreasmassarsch/Documents/deomaweb/logo-[id].png.',
+        '5. Lägg till projektet i projects.json med today\'s date som första update-post, baserat på vad vi gjort i denna konversation.',
+        '6. Kör: cd /Users/andreasmassarsch/Documents/deomaweb && git add projects.json logo-* && git commit -m "Add [Projektnamn] to dashboard" && git push && vercel --prod --yes',
+      ].join('\n');
+    }
+
+    function buildUpdatePrompt(p) {
+      var lastUpdate = p.updates && p.updates.length
+        ? p.updates.slice().sort(function(a,b){ return b.date.localeCompare(a.date); })[0]
+        : null;
+      return [
+        'uppdatera deoma för projektet "' + p.name + '" (id: "' + p.id + '").',
+        '',
+        'Senaste uppdatering: ' + (lastUpdate ? lastUpdate.date + ' — ' + (lastUpdate.items || [])[0] : 'ingen'),
+        '',
+        'Hämta live-versionen från https://www.deoma.se/projects.json (WebFetch), lägg till nya rader baserat på vad vi gjort sedan senaste uppdateringen, uppdatera "planned" och deploya med vercel --prod --yes.',
+      ].join('\n');
+    }
+
+    document.getElementById('copyNewBtn').addEventListener('click', function() {
+      copyToClipboard(buildNewProjectPrompt(), this);
+    });
+
+    document.getElementById('copyUpdateBtn').addEventListener('click', function() {
+      var p = projectsData.find(function(x) { return x.id === currentProjectId; });
+      if (p) copyToClipboard(buildUpdatePrompt(p), this);
+    });
+
+    // Patch showDetail to track current project
+    var _origShowDetail = showDetail;
+    showDetail = function(id) {
+      currentProjectId = id;
+      _origShowDetail(id);
+    };
 
     // Init
     if (isLoggedIn()) {
