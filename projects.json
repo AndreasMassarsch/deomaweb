@@ -102,6 +102,38 @@
         "Offline-stöd för buffrade historier",
         "App Store-lansering som PWA"
       ]
+    },
+    {
+      "id": "whysalami",
+      "name": "WhySalami",
+      "logo": "logo-whysalami.png",
+      "summary": "Digital insamlingsplattform som ersätter kakförsäljning med enkäter",
+      "description": "WhySalami kopplar samman företag, skolklasser och idrottslag i en tresidig plattform. Istället för att sälja kakor och salami delar ungdomar digitala enkäter till sitt nätverk — för varje svar tjänar laget pengar och företaget får värdefulla insikter från riktiga människor.",
+      "url": "https://whysalami.se",
+      "status": "active",
+      "updates": [
+        {
+          "date": "2026-03-30",
+          "items": [
+            "Teknisk spec v2 framtagen med tresidig modell (företag, lag, distributörer)",
+            "Next.js 15 fullstack-app med TypeScript, Prisma och PostgreSQL",
+            "17 databasmodeller: organizations, tasks, teams, campaigns, distribution_links m.fl.",
+            "Auth.js med dubbla credentials-providers (företagsportal + lagportal)",
+            "13 API-routes: auth, tasks CRUD, questions CRUD, teams, distributors",
+            "Företagsportal: dashboard, enkätbyggare med 10 frågetyper, förhandsvisning, publicering",
+            "Lagportal: dashboard, distributörshantering",
+            "Generaliserad Task-modell (survey är första typen, fler kan läggas till)"
+          ]
+        }
+      ],
+      "planned": [
+        "Respondentflöde: besvara enkät via unik delningslänk",
+        "Kampanjkoppling mellan företag och lag",
+        "Distributörsapp (mobil-first) med delning och topplista",
+        "Resultat-dashboard med frågenivå-statistik och CSV-export",
+        "E-postutskick för inbjudningar och påminnelser",
+        "Betalnings- och utbetalningsmodell"
+      ]
     }
   ]
 }
